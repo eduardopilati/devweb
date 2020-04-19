@@ -33,13 +33,15 @@ O gerenciador de solicitações conterá as seguintes especificações:
 #### Tipo da solicitação
 
 - Cadastro por um supervisor
-- Fluxo de atividades
+- Título
+- Atividades
 
 #### Atividades
 
 - Cadastro por um supervisor
 - Responsáveis
 - Status (aberta, encerrada)
+- Tempo trabalhado
 
 #### Integração com trello
 
