@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('atores', 'AtoresController@index');
+Route::get('atores/create', 'AtoresController@create');
+Route::post('atores/store', 'AtoresController@store');
+Route::get('atores/{id}/destroy', 'AtoresController@destroy');
