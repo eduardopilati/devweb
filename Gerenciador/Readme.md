@@ -51,4 +51,4 @@ O gerenciador de solicitações conterá as seguintes especificações:
 
 ### Diagrama de Classes
 
-:::image type="content" source="diagrama.png" alt-text="Diagrama de Classes do projeto":::
+![Diagrama de classes do projeto](/Gerenciador/diagrama.png)
