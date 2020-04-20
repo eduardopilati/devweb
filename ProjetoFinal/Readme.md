@@ -48,3 +48,7 @@ O gerenciador de solicitações conterá as seguintes especificações:
 - Cada fila representa um quadro do trello
 - Cada atividade representa uma lista
 - O supervisor deve cadastrar a ordem para todas as atividades existentes
+
+### Diagrama de Classes
+
+:::image type="content" source="../Gerenciador/diagrama.png" alt-text="Diagrama de classes do projeto":::
