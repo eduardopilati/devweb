@@ -18,7 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('atores', 'AtoresController@index');
-Route::get('atores/create', 'AtoresController@create');
-Route::post('atores/store', 'AtoresController@store');
-Route::get('atores/{id}/destroy', 'AtoresController@destroy');
+Route::group(['prefix' => 'atores', 'where' => ['id' => '[0-9]+']], function(){
+    Route::get('', ['as' => 'atores', 'uses' => 'AtoresController@index']);
+    Route::get('create', ['as' => 'atores.create', 'uses' => 'AtoresController@create']);
+    Route::post('store', ['as' => 'atores.store', 'uses' => 'AtoresController@store']);
+    Route::get('{id}/destroy', ['as' => 'atores.destroy', 'uses' => 'AtoresController@destroy']);
+    Route::get('{id}/edit', ['as' => 'atores.edit', 'uses' => 'AtoresController@edit']);
+    Route::put('{id}/update', ['as' => 'atores.update', 'uses' => 'AtoresController@update']);
+});
