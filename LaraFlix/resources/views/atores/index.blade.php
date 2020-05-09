@@ -1,4 +1,8 @@
-@extends('adminlte::page')
+@extends('layouts.default')
+
+@section('table-delete')
+"atores"
+@stop
 
 @section('content')
 
@@ -7,6 +11,7 @@
     <thead>
         <th>Nome</th>
         <th>Data de Nascimento</th>
+        <th>Nacionalidade</th>
         <th>Ações</th>
     </thead>
     <tbody>
@@ -14,14 +19,17 @@
         <tr>
             <td>{{$ator->nome}}</td>
             <td>{{ Carbon\Carbon::parse($ator->dt_nascimento)->format('d/m/Y') }}</td>
+            <td>{{ $ator->nacionalidade->descricao }}</td>
             <td>
                 <a href="{{ route('atores.edit', ['id' => $ator->id]) }}" class='btn-sm btn-success'>Editar</a>
-                <a href="{{ route('atores.destroy', ['id' => $ator->id]) }}" class='btn-sm btn-danger'>Remover</a>
+                <a href="#" onclick="return ConfirmaExclusao({{$ator->id}})" class='btn-sm btn-danger'>Remover</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+
+{{ $atores->links() }}
 
 <a href="{{ route('atores.create', []) }}" class='btn-sm btn-info'>Adicionar</a>
 

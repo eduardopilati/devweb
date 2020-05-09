@@ -210,9 +210,14 @@ return [
     'menu' => [
         ['header' => 'Atores'],
         [
-            'text' => 'Listagem',
+            'text' => 'Atores',
             'url' => 'atores',
             'icon' => 'fas fa-fw fa-users'
+        ],
+        [
+            'text' => 'Nacionalidades',
+            'url' => 'nacionalidades',
+            'icon' => 'fas fa-fw fa-flag'
         ]
         /*[
             'text' => 'search',
