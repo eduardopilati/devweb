@@ -29,16 +29,27 @@ class AtoresController extends Controller
 
     public function destroy($id)
     {
-        Ator::find($id)->delete();
         return redirect()->route('atores');
+
+        try {
+            Ator::find($id)->delete();
+            $ret = array('status' => 200, 'msg' => 'null');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+        } catch (\PDOException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+        }
+        return $ret;
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $ator = Ator::find($id);
         return view('atores.edit', compact('ator'));
     }
 
-    public function update(AtorRequest $request, $id){
+    public function update(AtorRequest $request, $id)
+    {
         Ator::find($id)->update($request->all());
         return redirect()->route('atores');
     }

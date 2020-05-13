@@ -17,8 +17,12 @@
             closeOnConfirm: false
         }).then(function(isConfirm){
             if(isConfirm.value){
-                $.get('/'+ @yield('table-delete') + '/' + id + '/destroy', function(){
-                    swal.fire('Deletado', 'Exclusão confirmada', 'success').then(function(){window.location.reload()})
+                $.get('/'+ @yield('table-delete') + '/' + id + '/destroy', function(data){
+                    if(data.status == 200){
+                        swal.fire('Deletado', 'Exclusão confirmada', 'success').then(function(){window.location.reload()})
+                    }else{
+                        swal.fire('Erro', 'Ocorreu um erro na exclusão, entre em contato com o suporte', 'error');
+                    }
                 })
             }
         })
