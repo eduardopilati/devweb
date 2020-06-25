@@ -29,7 +29,7 @@
     {!! Form::label('dt_nascimento', 'Data de Nascimento:') !!}
     {!! Form::date('dt_nascimento', $ator->dt_nascimento, ['class' => 'form-control', 'required']) !!}
 </div>
-
+ 
 <div class='form-group'>
     {!! Form::label('inicio_atividades', 'Início das Atividades:') !!}
     {!! Form::date('inicio_atividades', $ator->inicio_atividades, ['class' => 'form-control', 'required']) !!}

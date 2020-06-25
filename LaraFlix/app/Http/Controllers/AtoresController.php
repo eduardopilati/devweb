@@ -29,8 +29,6 @@ class AtoresController extends Controller
 
     public function destroy($id)
     {
-        return redirect()->route('atores');
-
         try {
             Ator::find($id)->delete();
             $ret = array('status' => 200, 'msg' => 'null');
