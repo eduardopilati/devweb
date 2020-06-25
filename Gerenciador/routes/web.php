@@ -17,12 +17,10 @@ use function Ramsey\Uuid\v1;
 
 Route::pattern('id', '[0-9]+');
 Route::pattern('solicitacao_id', '[0-9]+');
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::pattern('responsavel_id', '[0-9]+');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
 
     Route::prefix('fila')->name('fila')->group(function(){
         Route::get('', 'FilaController@inicio')->name('');
@@ -73,4 +71,3 @@ Route::group(['middleware' => 'auth'], function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

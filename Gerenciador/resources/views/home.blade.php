@@ -1,23 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+@foreach (\App\Fila::orderBy('titulo')->get() as $fila)
+    <div class="form-group">
+        <h3>{{$fila->titulo}}</h3>
+        @if($fila->solicitacoes->count() > 0)
+        @include('solicitacao.listar', ['solicitacoes' => $fila->solicitacoes])
+        @endif
     </div>
-</div>
+@endforeach
+<a href="{{ route('solicitacao.criar') }}" class='btn-sm btn-info'>Adicionar solicitacao</a>
 @endsection
